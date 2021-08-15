@@ -1,0 +1,20 @@
+<div *ngIf="!error">
+  <ng-container *ngIf="tareas && tareas.length else noData">
+    <ul>
+      <li *ngFor="let i of tareas">
+        <app-tarea-individual [tarea]="i" (onChange)="actualizarVista()"></app-tarea-individual>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #noData>
+    <p>No tiene tareas registradas.</p>
+  </ng-template>
+  <div>
+    <input type="text" #data>
+    <button (click)="guardarDatos(data)" (keydown)="guardarDatos(data)">GUARDAR</button>
+  </div>
+</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only"></span> Error: API error.
+</div>

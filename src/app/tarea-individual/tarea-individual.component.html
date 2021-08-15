@@ -1,0 +1,18 @@
+<div *ngIf="!mostrarContenido">
+  <span class="herramientas">
+    {{tarea.texto}}
+        <span class="item-editar">
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true" (click)="activarEdicion()"></i>
+        </span>
+
+        <span class="item-borrar">
+            <i class="glyphicon glyphicon-trash" aria-hidden="true" (click)="borrarRegistro(tarea)"></i>
+        </span>
+    </span>
+</div>
+<div *ngIf="mostrarContenido">
+  <input type="text" #item class="input-edit">
+  <span class="item-editar">
+    <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true" (click)="editarRegistro(item, tarea)"></i>
+  </span>
+</div>
